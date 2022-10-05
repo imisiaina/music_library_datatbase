@@ -30,14 +30,14 @@ describe Application do
   #   end
   # end
 
-  context "GET /albums" do
-    it 'returns info about all albums' do
-      response = get('/albums')
-      expect(response.status).to eq(200)
-      expect(response.body).to include('Title: Doolittle')
-      expect(response.body).to include('Released: 1989')
-    end
-  end
+  # context "GET /albums" do
+  #   it 'returns info about all albums' do
+  #     response = get('/albums')
+  #     expect(response.status).to eq(200)
+  #     expect(response.body).to include('Title: Doolittle')
+  #     expect(response.body).to include('Released: 1989')
+  #   end
+  # end
 
   context "GET /albums/:id" do
     it 'returns info about 1 album' do
@@ -48,4 +48,11 @@ describe Application do
       expect(response.body).to include('Artist: Pixies')
     end
   end
+
+  it 'should add a link to each album' do
+    response = get('/albums')
+    expect(response.status).to eq(200)
+    expect(response.body).to include('<a href="/albums/1">Doolittle</a>')
+  end
+
 end
