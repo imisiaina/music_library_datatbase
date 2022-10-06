@@ -15,8 +15,8 @@ class DatabaseConnection
   def self.connect
     # If the environment variable (set by Heroku)
     # is present, use this to open the connection.
-    if ENV['https://data.heroku.com/datastores/72254897-2276-40fb-9675-c0019e1908b0'] != nil
-      @connection = PG.connect(ENV['https://data.heroku.com/datastores/72254897-2276-40fb-9675-c0019e1908b0'])
+    if ENV['DATABASE_URL'] != nil
+      @connection = PG.connect(ENV['DATABASE_URL'])
       return
     end
 
