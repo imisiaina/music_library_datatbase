@@ -49,18 +49,18 @@ describe Application do
 
   context "GET /albums/:id" do
     it 'returns info about 1 album' do
-      response = get('/albums/1')
+      response = get('/albums/2')
       expect(response.status).to eq(200)
-      expect(response.body).to include('<h1>Doolittle</h1>')
-      expect(response.body).to include('Release year: 1989')
-      expect(response.body).to include('Artist: Pixies')
+      expect(response.body).to include('<h1>Surfer Rosa</h1>')
+      expect(response.body).to include('Release year: 1988')
+      expect(response.body).to include('Artist: ABBA')
     end
   end
 
   it 'should add a link to each album' do
     response = get('/albums')
     expect(response.status).to eq(200)
-    expect(response.body).to include('<a href="/albums/1">Doolittle</a>')
+    expect(response.body).to include('<a href="/albums/2">Surfer Rosa</a>')
   end
 
   context "GET /albums/new" do
