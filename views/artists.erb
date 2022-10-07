@@ -2,13 +2,11 @@
   <head></head>
   <body>
     <h1>Artists</h1>
-
     <% @artists.each do |artist| %>
       <div>
         Name: <a href="/artists/<%= artist.id %>"><%= artist.name %></a>
       </div>
     <% end %>
-    <!-- ... -->
   </body>
 </html>
 
