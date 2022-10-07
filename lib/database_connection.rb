@@ -15,8 +15,8 @@ class DatabaseConnection
   def self.connect
     # If the environment variable (set by Heroku)
     # is present, use this to open the connection.
-    if ENV['HEROKU_POSTGRESQL_OLIVE_URL'] != nil
-      @connection = PG.connect(ENV['HEROKU_POSTGRESQL_OLIVE_URL'])
+    if ENV['DATABASE_URL'] != nil
+      @connection = PG.connect(ENV['DATABASE_URL'])
       return
     end
 
