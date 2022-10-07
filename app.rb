@@ -21,21 +21,21 @@ class Application < Sinatra::Base
     return erb(:album)
   end
 
-  post '/albums' do 
-    if invalid_request_album?
-      status 400
-      return ''
-    end
+  # post '/albums' do 
+  #   if invalid_request_album?
+  #     status 400
+  #     return ''
+  #   end
 
-    repo = AlbumRepository.new
-    album = Album.new
-    album.title = params[:title]
-    album.release_year = params[:release_year]
-    album.artist_id = params[:artist_id]
+  #   repo = AlbumRepository.new
+  #   album = Album.new
+  #   album.title = params[:title]
+  #   album.release_year = params[:release_year]
+  #   album.artist_id = params[:artist_id]
 
-    repo.create(album)
-    return erb(:new_album_success)
-  end
+  #   repo.create(album)
+  #   return erb(:new_album_success)
+  # end
 
   get '/albums/new' do
     return erb(:new_album)
@@ -48,20 +48,20 @@ class Application < Sinatra::Base
     return erb(:artists)
   end
 
-  post '/artists' do
-    if invalid_request_artist?
-      status 400
-      return ''
-    end
-    repo = ArtistRepository.new
-    new_artist = Artist.new
-    new_artist.id = params[:id]
-    new_artist.name = params[:name]
-    new_artist.genre = params[:genre]
+  # post '/artists' do
+  #   if invalid_request_artist?
+  #     status 400
+  #     return ''
+  #   end
+  #   repo = ArtistRepository.new
+  #   new_artist = Artist.new
+  #   new_artist.id = params[:id]
+  #   new_artist.name = params[:name]
+  #   new_artist.genre = params[:genre]
 
-    repo.create(new_artist)
-    return erb(:new_artist_success)
-  end
+  #   repo.create(new_artist)
+  #   return erb(:new_artist_success)
+  # end
 
   get '/artists/new' do
     return erb(:new_artist)
