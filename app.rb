@@ -15,7 +15,7 @@ class Application < Sinatra::Base
   end
 
   get '/' do 
-    return 'Some response data'
+    return erb(:index)
   end
 
   get '/albums' do
